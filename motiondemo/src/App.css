@@ -1,0 +1,134 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+  background: #0f0f0f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.toggle-btn {
+  padding: 12px 24px;
+  margin-bottom: 40px;
+  border: none;
+  border-radius: 8px;
+  background: #6c5ce7;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.css-card.show:hover {
+  transform: translateY(-5px) rotateX(10deg) rotateY(10deg) scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.toggle-btn:hover {
+  opacity: 0.4;
+}
+
+.columns {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.panel {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.css-card {
+  background: #444;
+  width: 200px;
+  height: 120px;
+  border-radius: 12px;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.css-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hover-card {
+  background: #555;
+}
+
+.hover-card.show:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+/*motion tilt card */
+.motion-card {
+  background: #6c5ce7;
+  width: 200px;
+  height: 120px;
+  border-radius: 12px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+
+.normal-card {
+  background: #666;
+}
+
+.normal-card.show:hover {
+  transform: translateY(-5px) scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/*Motion normal card*/
+.motion-normal-card {
+  background: #fd79a8;
+  width: 200px;
+  height: 120px;
+  border-radius: 12px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/*motion spring card*/
+.motion-spring-card {
+  width: 200px;
+  height: 120px;
+  background: #00b894;
+  border-radius: 12px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: grab;
+}
+
+.motion-spring-card:active {
+  cursor: grabbing;
+}
