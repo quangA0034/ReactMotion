@@ -74,7 +74,8 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 100 }}
           >
-            <Spline scene="https://prod.spline.design/UWoeqiir20o49Dah/scene.splinecode" />
+            <SplineScene url="https://prod.spline.design/UWoeqiir20o49Dah/scene.splinecode" />
+            {/* <SplineScene url="https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode"/>   */}
           </motion.div>
         )}
         </AnimatePresence>
@@ -152,4 +153,17 @@ function MotionNormalCard({ variants }: { variants: Variants }) {
   );
 }
 
+function SplineScene({ url }: { url: string }) {
+  return (
+    <motion.div
+      className="spline-block"
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 60 }}
+      transition={{ duration: 0.5}}
+    >  
+      <Spline scene={url}/>
+    </motion.div>
+  );
+}
 
