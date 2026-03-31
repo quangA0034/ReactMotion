@@ -2,10 +2,11 @@ import { useState, useRef } from "react";
 import type { MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
+import Spline from "@splinetool/react-spline";
 import "./App.css";
 
 export default function App() {
-  const [open, setOpen] = useState<boolean>(false);
+  const [view, setView] = useState<"cards" | "spline" | null>(null);
 
   // variants for staggered children <- so there is staggered animation when the cards appear
   const cardVariants: Variants = {
@@ -15,28 +16,42 @@ export default function App() {
 
   return (
     <div className="wrapper">
-      <button className="toggle-btn" onClick={() => setOpen(!open)}>
-        Toggle Cards
-      </button>
 
-      <div className="columns">
-        {/* CSS SIDE */}
-        <div className="panel">
-          <h2>CSS</h2>
-          <div className={`css-card ${open ? "show" : ""}`}>CSS Tilt Card</div>
-          <div className={`css-card hover-card ${open ? "show" : ""}`}>Hover Card</div>
-          <div className={`css-card normal-card ${open ? "show" : ""}`}>Normal Card</div>
-        </div>
+      {/* Separate container for buttons */}
+      <div className="buttons">
+        <button className="toggle-btn" onClick={() => setView(view === "cards" ? null : "cards")}>
+          Toggle Cards
+        </button>
 
-        {/* MOTION SIDE */}
-        <div className="panel">
-          <h2>Motion</h2>
-          <AnimatePresence>
-            {open && (
+        <button className="toggle-btn" onClick={() => setView(view === "spline" ? null : "spline")}>
+          Toggle Spline
+        </button>   
+      </div>
+
+      {/* Content container */}
+      <AnimatePresence mode="wait">
+        {view === "cards" && (
+          <motion.div
+            key="cards"
+            className="columns"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* CSS SIDE */}
+            <div className="panel">
+              <h2>CSS</h2>
+              <div className="css-card show">CSS Tilt Card</div>
+              <div className="css-card hover-card show">Hover Card</div>
+              <div className="css-card normal-card show">Normal Card</div>
+            </div>
+
+            {/* MOTION SIDE */}
+            <div className="panel">
+              <h2>Motion</h2>
               <motion.div
                 initial="hidden"
                 animate="visible"
-                exit="hidden"
                 variants={{
                   hidden: {},
                   visible: { transition: { staggerChildren: 0.2 } },
@@ -46,10 +61,24 @@ export default function App() {
                 <SpringCard variants={cardVariants} />
                 <MotionNormalCard variants={cardVariants} />
               </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Spline 3D model */}
+        {view === "spline" && (
+          <motion.div
+            key="spline"
+            className="spline-section"
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+          >
+            <Spline scene="https://prod.spline.design/UWoeqiir20o49Dah/scene.splinecode" />
+          </motion.div>
+        )}
+        </AnimatePresence>
+
     </div>
   );
 }
@@ -122,3 +151,5 @@ function MotionNormalCard({ variants }: { variants: Variants }) {
     </motion.div>
   );
 }
+
+

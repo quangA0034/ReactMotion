@@ -132,3 +132,18 @@ body, html {
 .motion-spring-card:active {
   cursor: grabbing;
 }
+
+/* Spline styles */
+.spline-section {
+  width: 100%;
+  height: 600px;
+  margin-top: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* optional: make it more “showcase” */
+.spline-section canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
