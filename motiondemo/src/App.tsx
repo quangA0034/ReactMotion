@@ -79,7 +79,7 @@ export default function App() {
             {/* Ice creams: https://prod.spline.design/UWoeqiir20o49Dah/scene.splinecode */}
             {/* Follow the cursor: https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode   */}
             {/* Derp follows: https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode  */}
-            {/* Simple keyboard: https://prod.spline.design/dbamkkKVWqPGTE4B/scene.splinecode   */}
+            {/* Simple keyboard: https://prod.spline.design/AO9AmfSedxarJXg3/scene.splinecode   */}
           </motion.div>
         )}
         </AnimatePresence>
