@@ -4,9 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Spline from "@splinetool/react-spline";
 import "./App.css";
+import GSAPS from "./GSAPScene";
+
 
 export default function App() {
-  const [view, setView] = useState<"cards" | "spline" | null>(null);
+  const [view, setView] = useState<"cards" | "spline" | "gsap" | null>(null);
 
   // variants for staggered children <- so there is staggered animation when the cards appear
   const cardVariants: Variants = {
@@ -26,6 +28,10 @@ export default function App() {
         <button className="toggle-btn" onClick={() => setView(view === "spline" ? null : "spline")}>
           Toggle Spline
         </button>   
+
+        <button className="toggle-btn" onClick={() => setView(view === "gsap" ? null : "gsap")}>
+          Toggle GSAP
+        </button>
       </div>
 
       {/* Content container */}
@@ -82,6 +88,23 @@ export default function App() {
             {/* Simple keyboard: https://prod.spline.design/AO9AmfSedxarJXg3/scene.splinecode   */}
           </motion.div>
         )}
+
+        {/* GSAP  */}
+          {view === "gsap" && (
+            <motion.div
+              key="gsap"
+              className="gsap-section"
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 100 }}
+            >
+              <GSAPS.GSAPScene />
+              <GSAPS.GSAPScene2 />
+
+
+            </motion.div>
+          )}
+
         </AnimatePresence>
 
     </div>
