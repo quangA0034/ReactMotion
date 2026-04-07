@@ -155,10 +155,11 @@ body, html {
 }
 
 .gsap-ball {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   background-color: red;
   border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
@@ -169,6 +170,18 @@ body, html {
   width: 100px;
   height: 100px;
   background-color: rgb(0, 4, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+               /* start at left */
+}
+.gsap-box2 {
+  width: 100px;
+  height: 100px;
+  margin: 50px;
+  background-color: rgb(131, 127, 77);
+  display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Spline from "@splinetool/react-spline";
 import "./App.css";
-import GSAPS from "./GSAPScene";
+import { GSAPScene, GSAPScene2, GSAPScene3}  from "./GSAPScene";
 
 
 export default function App() {
@@ -98,10 +98,9 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 100 }}
             >
-              <GSAPS.GSAPScene />
-              <GSAPS.GSAPScene2 />
-
-
+              <GSAPScene />
+              <GSAPScene2 />
+              <GSAPScene3 />
             </motion.div>
           )}
 
