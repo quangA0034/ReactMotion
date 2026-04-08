@@ -60,7 +60,7 @@ export default function App() {
                 animate="visible"
                 variants={{
                   hidden: {},
-                  visible: { transition: { staggerChildren: 0.2 } },
+                  visible: { transition: { staggerChildren: 0.3 } },
                 }}
               >
                 <TiltCard variants={cardVariants} />
